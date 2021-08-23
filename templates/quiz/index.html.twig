@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choose a quiz{% endblock %}
+
+{% block body %}
+    <h1>Choose a quiz :</h1>
+    {% for value in category %}
+        <a href="{{ path('categoryChoose', {'categoryName': value.name, 'id': value.id, 'page': 0}) }}">{{ value.name }}</a> <br>
+    {% endfor %}
+{% endblock %}

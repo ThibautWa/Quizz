@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <form action="{{ path('score') }}" method="post">
+    {% for contents in content %}
+            <p>{{ contents.question }}</p>
+            {% for reponses in contents.reponses %}
+                    <input type="radio" id="{{ reponses.reponse }}" name="{{ contents.id }}" value="{{ reponses.reponseExpected }}">
+                    <label for="{{ reponses.reponse }}">{{ reponses.reponse }}</label>
+            {% endfor %}
+        <br><br>
+    {% endfor %}
+    <input type="submit">
+    </form>
+{% endblock %}
